@@ -1,3 +1,5 @@
+#Ideas: total, sales-expenditure, percentage increase/decreaase, average sales/profit, min and max sales/expenditure
+
 #import csv
 #with open('sales.csv', 'r') as sales_csv:
     #spreadsheet_sales = csv.DictReader(sales_csv)
