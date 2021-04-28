@@ -16,6 +16,13 @@ feb_profit = feb_sales - feb_expenditure
 mar_profit = mar_sales - mar_expenditure
 apr_profit = apr_sales - apr_expenditure
 may_profit = may_sales - may_expenditure
+jun_profit = jun_sales - jun_expenditure
+jul_profit = jul_sales - jul_expenditure
+aug_profit = aug_sales - aug_expenditure
+sep_profit = sep_sales - sep_expenditure
+oct_profit = oct_sales - oct_expenditure
+nov_profit = nov_sales - nov_expenditure
+dec_profit = dec_sales - dec_expenditure
 
 if monthly_profit == 'JANUARY':
     print('Total January Profit: ', jan_profit)
