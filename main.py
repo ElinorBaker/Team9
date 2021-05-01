@@ -11,7 +11,7 @@
 #print('Total Sales: ', total_sales)
 
 monthly_profit = input('Which month would you like to see the profit of?').upper()
-jan_profit = jan_sales - jau_expenditure
+jan_profit = jan_sales - jan_expenditure
 feb_profit = feb_sales - feb_expenditure
 mar_profit = mar_sales - mar_expenditure
 apr_profit = apr_sales - apr_expenditure
