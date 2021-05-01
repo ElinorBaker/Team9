@@ -320,7 +320,7 @@ while True:
     else:
         print("Sorry, invalid response. Please try again!")
         stats_loop = input("Would you like to try again? (Y/N)").upper()
-        if stats_loop != "Y":
+        if stats_loop != "Y": # Why does Y/N seem to be reversed?
             print("Goodbye!")
             exit()
         elif stats_loop == "N":
