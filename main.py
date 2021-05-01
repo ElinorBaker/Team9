@@ -1,4 +1,4 @@
-# Issues: How to get out of nested loops???
+# Issues: How to get out of nested loops??? Figure "Would you like to see another statistic?" out
 # In-Progress: Section 2.3.1 (Work out see another month loop)
 # Minor Issues: Invalid responses, currently solved by 'While True' looping indefinitely until expected response recieved.
 
