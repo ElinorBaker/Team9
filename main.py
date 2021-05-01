@@ -1,4 +1,6 @@
-# Ideas: Invalid responses!???
+# Issues: How to get out of nested loops???
+# In-Progress: Section 2.3.1 (Work out see another month loop)
+# Minor Issues: Invalid responses, currently solved by 'While True' looping indefinitely until expected response recieved.
 
 # 1 RAW DATA SECTION:
 import csv
@@ -80,184 +82,209 @@ min_profit = min(profit_list)
 profit_average = round(average(profit_list), 2)
 
 # 2 QUESTIONS SECTION:
-
 print("WELCOME TO THE ANNUAL SALES REVIEW!")
 while True:
     option = input ('Would you like to see statistics for SALES, EXPENDITURES, or PROFIT? (S/E/P)').upper()
 
+    # 2.1 QUESTIONS ABOUT SALES
     if option == "S":
-        sales_section = input('Would you like to see the sales YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
+        while True:
+            sales_section = input('Would you like to see the sales YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
 
-        if sales_section == "1":
-            overall_sales = input('Please confirm: see total sales? (Y/N)').upper()
-            if overall_sales == "Y":
-                print('The total sales for this year was {}.'.format(total_sales))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
-            elif overall_sales == "N":
-                print("No problem! Stats is boring anyway!!!")
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
+            # 2.1.1 Total Sales
+            if sales_section == "1":
+                while True:
+                    overall_sales = input('Please confirm: see total sales? (Y/N)').upper()
+                    if overall_sales == "Y":
+                        print('The total sales for this year was {}.'.format(total_sales))
+                        top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                        if top_loop_question != "Y":
+                            print("Goodbye!")
+                            exit()
+                        elif top_loop_question == "N":
+                            break # HOW TO GET TO OUTERMOST LOOP??
+                    elif overall_sales == "N":
+                        print("No problem! Stats is boring anyway!!!")
+                        top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                        if top_loop_question != "Y":
+                            print("Goodbye!")
+                            exit()
+                        elif top_loop_question == "N":
+                            break # HOW TO GET TO OUTERMOST LOOP??
 
-        elif sales_section == "2":
-            show_averagesales = input('Please confirm: see average yearly sales? (Y/N)').upper()
-            if show_averagesales == "Y":
-                print("This year's average sales was {}.".format(sales_average))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
-            elif show_averagesales == "N":
-                print('Whatever then, suit yourself...')
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
+            # 2.1.2 Average Sales
+            elif sales_section == "2":
+                show_averagesales = input('Please confirm: see average yearly sales? (Y/N)').upper()
+                if show_averagesales == "Y":
+                    print("This year's average sales was {}.".format(sales_average))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                elif show_averagesales == "N":
+                    print('Whatever then, suit yourself...')
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
-        elif sales_section == "3":
-            show_minmax_sales = input('Would you like to see the HIGHEST or LOWEST monthly sales? (H/L)').upper()
-            if show_minmax_sales == 'H':
-                print('The highest monthly sales was {}, from {}.'.format(max_sales, max_sales_month))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
-            elif show_minmax_sales == 'L':
-                print('The lowest monthly sales was {}, from {}.'.format(min_sales, min_sales_month))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
+            # 2.1.3 Min/Max Sales
+            elif sales_section == "3":
+                show_minmax_sales = input('Would you like to see the HIGHEST or LOWEST monthly sales? (H/L)').upper()
+                if show_minmax_sales == 'H':
+                    print('The highest monthly sales was {}, from {}.'.format(max_sales, max_sales_month))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                elif show_minmax_sales == 'L':
+                    print('The lowest monthly sales was {}, from {}.'.format(min_sales, min_sales_month))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
+    # 2.2 QUESTIONS ABOUT EXPENDITURE
     elif option == "E":
-        expend_section = input('Would you like to see the expenditure YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
+        while True:
+            expend_section = input('Would you like to see the expenditure YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
 
-        if expend_section == "1":
-            overall_expend = input('Please confirm: see total expenditure? (Y/N)').upper()
-            if overall_expend == "Y":
-                print("This year's total expenditure was {}.".format(total_expend))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
-            elif overall_expend == "N":
-                print('Like I said, stats is boring anyway lol.')
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
+            # 2.2.1 Total Expenditure
+            if expend_section == "1":
+                overall_expend = input('Please confirm: see total expenditure? (Y/N)').upper()
+                if overall_expend == "Y":
+                    print("This year's total expenditure was {}.".format(total_expend))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                elif overall_expend == "N":
+                    print('Like I said, stats is boring anyway lol.')
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
-        if expend_section == "2":
-            show_averageexpend = input('Please confirm: see average expenditure? (Y/N)').upper()
-            if show_averageexpend == "Y":
-                print("The average expenditure this year was {}.".format(expend_average))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
-            elif show_averageexpend == "N":
-                print('Whatever then, suit yourself...')
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
+            # 2.2.2 Average Expenditure
+            if expend_section == "2":
+                show_averageexpend = input('Please confirm: see average expenditure? (Y/N)').upper()
+                if show_averageexpend == "Y":
+                    print("The average expenditure this year was {}.".format(expend_average))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                elif show_averageexpend == "N":
+                    print('Whatever then, suit yourself...')
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
-        if expend_section == "3":
-            show_minmax_expand = input('Would you like to see the HIGHEST or LOWEST monthly expenditure? (H/L)').upper()
-            if show_minmax_expand == 'H':
-                print('The highest monthly expenditure was {}, from {}.'.format(max_expend, max_expend_month))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
-            elif show_minmax_expand == 'L':
-                print('The lowest monthly expenditure was {}, from {}.'.format(min_expend, min_expend_month))
-                top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                if top_loop_question != "Y":
-                    print("Goodbye!")
-                    exit()
-                elif top_loop_question == "N":
-                    continue
+            # 2.2.2 Min/Max Expenditure
+            if expend_section == "3":
+                show_minmax_expand = input('Would you like to see the HIGHEST or LOWEST monthly expenditure? (H/L)').upper()
+                if show_minmax_expand == 'H':
+                    print('The highest monthly expenditure was {}, from {}.'.format(max_expend, max_expend_month))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                elif show_minmax_expand == 'L':
+                    print('The lowest monthly expenditure was {}, from {}.'.format(min_expend, min_expend_month))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
+    # 2.3 QUESTIONS ABOUT PROFIT
     elif option == "P":
         while True:
             profit_section = input('Would you like to see the profits BY MONTH(1), YEARLY TOTAL(2), YEARLY AVERAGE(3) or MIN/MAX?(4)?')
 
+            # 2.3.1 Profit Per Month
             if profit_section == "1":
-                monthly_profit = input('Which month would you like to see the profit of? (1/2/3 etc.)')
-                if monthly_profit == '1':
-                    print('Total January Profit:', jan_prof)
-                elif monthly_profit == '2':
-                    print('Total February Profit:', feb_prof)
-                elif monthly_profit == '3':
-                    print('Total March Profit:', mar_prof)
-                elif monthly_profit == '4':
-                    print('Total April Profit:', apr_prof)
-                elif monthly_profit == '5':
-                    print('Total May Profit:', may_prof)
-                elif monthly_profit == '6':
-                    print('Total June Profit:', jun_prof)
-                elif monthly_profit == '7':
-                    print('Total July Profit:', jul_prof)
-                elif monthly_profit == '8':
-                    print('Total August Profit:', aug_prof)
-                elif monthly_profit == '9':
-                    print('Total September Profit:', sep_prof)
-                elif monthly_profit == '10':
-                    print('Total October Profit:', oct_prof)
-                elif monthly_profit == '11':
-                    print('Total November Profit:', nov_prof)
-                elif monthly_profit == '12':
-                    print('Total December Profit:', dec_prof)
+                while True:
+                    monthly_profit = input('Which month would you like to see the profit of? (1/2/3 etc.)')
+                    if monthly_profit == '1':
+                        print('Total January Profit:', jan_prof)
+                        month_loop_question = input("Would you like to see another month's profit? (Y/N)").upper()
+                        if month_loop_question != "Y":
+                            top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                            if top_loop_question != "Y":
+                                print("Goodbye!")
+                                exit()
+                            elif top_loop_question == "N":
+                                break #HOW TO GET TO OUTERMOST LOOP??
+                        elif month_loop_question == "N":
+                            continue
+                    elif monthly_profit == '2':
+                        print('Total February Profit:', feb_prof)
+                    elif monthly_profit == '3':
+                        print('Total March Profit:', mar_prof)
+                    elif monthly_profit == '4':
+                        print('Total April Profit:', apr_prof)
+                    elif monthly_profit == '5':
+                        print('Total May Profit:', may_prof)
+                    elif monthly_profit == '6':
+                        print('Total June Profit:', jun_prof)
+                    elif monthly_profit == '7':
+                        print('Total July Profit:', jul_prof)
+                    elif monthly_profit == '8':
+                        print('Total August Profit:', aug_prof)
+                    elif monthly_profit == '9':
+                        print('Total September Profit:', sep_prof)
+                    elif monthly_profit == '10':
+                        print('Total October Profit:', oct_prof)
+                    elif monthly_profit == '11':
+                        print('Total November Profit:', nov_prof)
+                    elif monthly_profit == '12':
+                        print('Total December Profit:', dec_prof)
 
-            if profit_section == "2":
-                overall_prof = input('Please confirm: see total profits for the year? (Y/N)').upper()
-                if overall_prof == "Y":
+            # 2.3.1 Total Profit
+            elif profit_section == "2":
+                overall_profit = input('Please confirm: see total profits for the year? (Y/N)').upper()
+                if overall_profit == "Y":
                     print("The total profit for this year was {}.".format(total_prof))
                     top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
                     if top_loop_question != "Y":
                         print("Goodbye!")
                         exit()
                     elif top_loop_question == "N":
-                        continue
-                elif overall_prof == "N":
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                elif overall_profit == "N":
                     print("Eh who needs to know they've made any money anyway!")
                     top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
                     if top_loop_question != "Y":
                         print("Goodbye!")
                         exit()
                     elif top_loop_question == "N":
-                        continue
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
+            # 2.3.3 Average Profit
             elif profit_section == "3":
                 show_averageprofit = input('Please confirm: see yearly average profit? (Y/N)').upper()
-                if show_averagesales == "Y":
+                if show_averageprofit == "Y":
                     print("This year's average profit was {}.".format(profit_average))
                 elif show_averageprofit == "N":
                     print('Whatever then, suit yourself...')
@@ -266,8 +293,9 @@ while True:
                         print("Goodbye!")
                         exit()
                     elif top_loop_question == "N":
-                        continue
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
+            # 2.3.4 Min/Max Profit
             elif profit_section == "4":
                 show_minmax_profit = input('Would you like to see the HIGHEST or LOWEST monthly profit? (H/L)').upper()
                 if show_minmax_profit == 'H':
@@ -277,15 +305,15 @@ while True:
                         print("Goodbye!")
                         exit()
                     elif top_loop_question == "N":
-                        continue
-                elif show_minmax_profit == 'L':
+                        break  # HOW TO GET TO OUTERMOST LOOP??
+                if show_minmax_profit == 'L':
                     print('The lowest monthly profit was a defecit of {}, from {}.'.format(min_profit, min_profit_month))
                     top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
                     if top_loop_question != "Y":
                         print("Goodbye!")
                         exit()
                     elif top_loop_question == "N":
-                        continue
+                        break  # HOW TO GET TO OUTERMOST LOOP??
 
     else:
         print("Sorry, invalid response. Please try again!")
@@ -295,6 +323,7 @@ while True:
             exit()
         elif stats_loop == "N":
             continue
+
 
 
 # INACTIVE CODE BELOW
