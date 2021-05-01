@@ -75,14 +75,14 @@ elif monthly_profit == 'DECEMBER':
 sales_list = [6226, 1521, 1842, 2051, 1728, 2138, 7479, 4434, 3615, 5472, 7224, 1812]
 total_sales = sum(sales_list)
 
+expend_list = [3808, 3373, 3965, 1098, 3046, 2258, 2084, 2799, 1649, 1116, 1431, 3532]
+total_expend = sum(expend_list)
+
 overall_sales = input('Would you like to see the total profits? y/n')
 if overall_sales == "y":
    print(total_sales)
 elif overall_sales:
    print("No problem, stats is boring anyway!!!")
-
-expend_list = [3808, 3373, 3965, 1098, 3046, 2258, 2084, 2799, 1649, 1116, 1431, 3532]
-total_expend = sum(expend_list)
 
 overall_expend = input('Would you like to see the total expenditure? y/n')
 if overall_expend == "y":
@@ -96,6 +96,26 @@ if overall_pro == "y":
     print(total_pro)
 elif overall_pro:
     print("eh who needs to know they've made any money anyway")
+
+from statistics import mean
+def average(l):
+    avg= sum(l)/len(l)
+    return avg
+sales_average = average(sales_list)
+expend_average = average(expend_list)
+
+show_averagesales = input('Would you like to see the average yearly sales? y/n')
+if show_averagesales == "y":
+    print("Average sales this year:", sales_average)
+elif show_averagesales:
+    print('Whatever then, suit yourself...')
+
+show_averageexpend = input('Would you like to see the average expenditure? y/n')
+if show_averageexpend == "y":
+    print("Average expenditure this year:",expend_average)
+elif show_averageexpend:
+    print('Whatever then, suit yourself...')
+
 
 
 
