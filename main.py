@@ -1,5 +1,4 @@
-# Ideas: percentage increase/decreaase
-# Notes: else loopback? Corresponding month to minmax values?
+# Ideas: percentage increase/decreaase? Else loop back?
 
 # 1 RAW DATA SECTION:
 import csv
@@ -82,70 +81,187 @@ profit_average = round(average(profit_list), 2)
 
 # 2 QUESTIONS SECTION:
 
+print("WELCOME TO THE ANNUAL SALES REVIEW!")
+while True:
+    option = input ('Would you like to see statistics for SALES, EXPENDITURES, or PROFIT? (S/E/P)').upper()
+
+    if option == "S":
+        sales_section = input('Would you like to see the sales YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
+
+        if sales_section == "1":
+            overall_sales = input('Please confirm: see total sales? (Y/N)').upper()
+            if overall_sales == "Y":
+                print('The total sales for this year was {}.'.format(total_sales))
+            elif overall_sales:
+                print("No problem! Stats is boring anyway!!!")
+
+        elif sales_section == "2":
+            show_averagesales = input('Please confirm: see the average yearly sales? (Y/N)').upper()
+            if show_averagesales == "Y":
+                print("This year's average sales was {}.".format(sales_average))
+            elif show_averagesales:
+                print('Whatever then, suit yourself...')
+
+        elif sales_section == "3":
+            show_minmax_sales = input('Would you like to see the HIGHEST or LOWEST monthly sales? (H/L)').upper()
+            if show_minmax_sales == 'H':
+                print('The highest monthly sales was {}, from {}.'.format(max_sales, max_sales_month))
+            elif show_minmax_sales == 'L':
+                print('The lowest monthly sales was {}, from {}.'.format(min_sales, min_sales_month))
+
+    elif option == "E":
+        expend_section = input('Would you like to see the expenditure YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
+
+        if expend_section == "1":
+            overall_expend = input('Please confirm: see the total expenditure? (Y/N)').upper()
+            if overall_expend == "Y":
+                print("This year's total expenditure was {}.".format(total_expend))
+            elif overall_expend:
+                print('Like I said, stats is boring anyway lol.')
+
+        if expend_section == "2":
+            show_averageexpend = input('Please confirm: see the average expenditure? (Y/N)').upper()
+            if show_averageexpend == "Y":
+                print("The average expenditure this year was {}.".format(expend_average))
+            elif show_averageexpend:
+                print('Whatever then, suit yourself...')
+
+        if expend_section == "3":
+            show_minmax_expand = input('Would you like to see the HIGHEST or LOWEST monthly expenditure? (H/L)').upper()
+            if show_minmax_expand == 'H':
+                print('The highest monthly expenditure was {}, from {}.'.format(max_expend, max_expend_month))
+            elif show_minmax_expand == 'L':
+                print('The lowest monthly expenditure was {}, from {}.'.format(min_expend, min_expend_month))
+
+    elif option == "P":
+        while True:
+            profit_section = input('Would you like to see the profits BY MONTH(1), YEARLY TOTAL(2), YEARLY AVERAGE(3) or MIN/MAX?(4)?')
+
+            if profit_section == "1":
+                monthly_profit = input('Which month would you like to see the profit of? (1/2/3 etc.)')
+                if monthly_profit == '1':
+                    print('Total January Profit:', jan_prof)
+                elif monthly_profit == '2':
+                    print('Total February Profit:', feb_prof)
+                elif monthly_profit == '3':
+                    print('Total March Profit:', mar_prof)
+                elif monthly_profit == '4':
+                    print('Total April Profit:', apr_prof)
+                elif monthly_profit == '5':
+                    print('Total May Profit:', may_prof)
+                elif monthly_profit == '6':
+                    print('Total June Profit:', jun_prof)
+                elif monthly_profit == '7':
+                    print('Total July Profit:', jul_prof)
+                elif monthly_profit == '8':
+                    print('Total August Profit:', aug_prof)
+                elif monthly_profit == '9':
+                    print('Total September Profit:', sep_prof)
+                elif monthly_profit == '10':
+                    print('Total October Profit:', oct_prof)
+                elif monthly_profit == '11':
+                    print('Total November Profit:', nov_prof)
+                elif monthly_profit == '12':
+                    print('Total December Profit:', dec_prof)
+
+            if profit_section == "2":
+                overall_prof = input('Would you like to see the total profits for the year? (Y/N)').upper()
+                if overall_prof == "Y":
+                    print("The total profit for this year was {}.".format(total_prof))
+                elif overall_prof:
+                    print("Eh who needs to know they've made any money anyway!")
+
+            elif profit_section == "3":
+                show_averageprofit = input('Would you like to see the average profit? (Y/N)').upper()
+                if show_averagesales == "Y":
+                    print("This year's average profit was {}.".format(profit_average))
+                elif show_averageprofit:
+                    print('Whatever then, suit yourself...')
+
+            elif profit_section == "4":
+                show_minmax_profit = input('Would you like to see the HIGHEST or LOWEST monthly profit? (H/L)').upper()
+                if show_minmax_profit == 'H':
+                    print('The highest monthly profit was {}, from {}.'.format(max_profit, max_profit_month))
+                elif show_minmax_profit == 'L':
+                    print('The lowest monthly profit was a defecit of {}, from {}.'.format(min_profit, min_profit_month))
+            else:
+                print('Sorry, invalid response. Please chooose an option between 1-4.')
+                continue
+
+    else:
+        print("Sorry, invalid response. Please try again!")
+        sales_loop = input("Would you like to try again? (Y/N)").upper()
+        if sales_loop != "Y":
+            print("Goodbye!")
+            break
+        elif sales_loop == "N":
+            continue
+
+'''
 # 2.1 QUESTIONS ABOUT SALES
 # 2.1.1 Total Sales
-overall_sales = input('Would you like to see the total sales? Y/N').upper()
+overall_sales = input('Would you like to see the total sales? (Y/N)').upper()
 if overall_sales == "Y":
    print('The total sales for this year was {}.'.format(total_sales))
 elif overall_sales:
    print("No problem! Stats is boring anyway!!!")
 
 # 2.1.2 Average Sales
-show_averagesales = input('Would you like to see the average yearly sales? Y/N').upper()
+show_averagesales = input('Would you like to see the average yearly sales? (Y/N)').upper()
 if show_averagesales == "Y":
     print("This year's average sales was {}.".format(sales_average))
 elif show_averagesales:
     print('Whatever then, suit yourself...')
 
 # 2.1.3 Min/Max Sales
-show_minmax_sales = input('Would you like to see the HIGHEST or LOWEST monthly sales?').upper()
-if show_minmax_sales == 'HIGHEST':
+show_minmax_sales = input('Would you like to see the HIGHEST or LOWEST monthly sales? (H/L)').upper()
+if show_minmax_sales == 'H':
     print('The highest monthly sales was {}, from {}.'.format(max_sales, max_sales_month))
-elif show_minmax_sales == 'LOWEST':
+elif show_minmax_sales == 'L':
     print('The lowest monthly sales was {}, from {}.'.format(min_sales, min_sales_month))
 
 # 2.2 QUESTIONS ABOUT EXPENDITURE
 # 2.2.1 Total Expenditure
-overall_expend = input('Would you like to see the total expenditure? Y/N').upper()
+overall_expend = input('Would you like to see the total expenditure? (Y/N)').upper()
 if overall_expend == "Y":
     print("This year's total expenditure was {}.".format(total_expend))
 elif overall_expend:
     print('Like I said, stats is boring anyway lol.')
 
 # 2.2.2 Average Expenditure
-show_averageexpend = input('Would you like to see the average expenditure? Y/N').upper()
+show_averageexpend = input('Would you like to see the average expenditure? (Y/N)').upper()
 if show_averageexpend == "Y":
     print("The average expenditure this year was {}.".format(expend_average))
 elif show_averageexpend:
     print('Whatever then, suit yourself...')
 
 # 2.2.2 Min/Max Expenditure
-show_minmax_expand = input('Would you like to see the HIGHEST or LOWEST monthly expenditure?').upper()
-if show_minmax_expand == 'HIGHEST':
+show_minmax_expand = input('Would you like to see the HIGHEST or LOWEST monthly expenditure? (H/L)').upper()
+if show_minmax_expand == 'H':
     print('The highest monthly expenditure was {}, from {}.'.format(max_expend, max_expend_month))
-elif show_minmax_expand == 'LOWEST':
+elif show_minmax_expand == 'L':
     print('The lowest monthly expenditure was {}, from {}.'.format(min_expend, min_expend_month))
 
 # 2.3 QUESTIONS ABOUT PROFIT
 # 2.3.1 Total Profit
-overall_prof = input('Would you like to see the total profits for the year? Y/N')
+overall_prof = input('Would you like to see the total profits for the year? (Y/N)')
 if overall_prof == "Y":
     print("The total profit for this year was {}.".format(total_prof))
 elif overall_prof:
     print("Eh who needs to know they've made any money anyway!")
 
 # 2.3.2 Average Profit
-show_averageprofit = input('Would you like to see the average profit? Y/N').upper()
+show_averageprofit = input('Would you like to see the average profit? (Y/N)').upper()
 if show_averagesales == "Y":
     print("This year's average profit was {}.".format(profit_average))
 elif show_averageprofit:
     print('Whatever then, suit yourself...')
 
 # 2.3.3 Min/Max Profit
-show_minmax_profit = input('Would you like to see the HIGHEST or LOWEST monthly profit?').upper()
-if show_minmax_profit == 'HIGHEST':
+show_minmax_profit = input('Would you like to see the HIGHEST or LOWEST monthly profit? (H/L)').upper()
+if show_minmax_profit == 'H':
     print('The highest monthly profit was {}, from {}.'.format(max_profit, max_profit_month))
-elif show_minmax_profit == 'LOWEST':
+elif show_minmax_profit == 'L':
     print('The lowest monthly profit was a defecit of {}, from {}.'.format(min_profit, min_profit_month))
 
 # 2.3.4 Profit Per Month
@@ -174,6 +290,7 @@ elif monthly_profit == '11':
     print('Total November Profit:', nov_prof)
 elif monthly_profit == '12':
     print('Total December Profit:', dec_prof)
+    
 
 
 
