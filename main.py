@@ -3,12 +3,14 @@
 # Minor Issues: Invalid responses, currently solved by 'While True' looping indefinitely until expected response recieved.
 
 # 1 RAW DATA SECTION:
+'''
 import csv
 with open('sales.csv', 'r') as sales_csv:
     spreadsheet_sales = csv.DictReader(sales_csv)
     for row in spreadsheet_sales:
         print(dict(row))
     sales = []
+'''
 
 from statistics import mean
 def average(l):
