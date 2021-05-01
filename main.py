@@ -80,3 +80,23 @@ if overall_sales == "y":
    print(total_sales)
 elif overall_sales:
    print("No problem, stats is boring anyway!!!")
+
+expend_list = [3808, 3373, 3965, 1098, 3046, 2258, 2084, 2799, 1649, 1116, 1431, 3532]
+total_expend = sum(expend_list)
+
+overall_expend = input('Would you like to see the total expenditure? y/n')
+if overall_expend == "y":
+    print(total_expend)
+elif overall_expend:
+    print('Like I said stats is boring anyway lol')
+
+total_pro = total_sales - total_expend
+overall_pro = input('Would you like to see the total profits for the year? y/n')
+if overall_pro == "y":
+    print(total_pro)
+elif overall_pro:
+    print("eh who needs to know they've made any money anyway")
+
+
+
+
