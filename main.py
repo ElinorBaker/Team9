@@ -95,15 +95,14 @@ while True:
 
             # 2.1.1 Total Sales
             if sales_section == "1":
-                while True:
-                    overall_sales = input('Please confirm: see total sales? (Y/N)').upper()
-                    if overall_sales == "Y":
-                        print('The total sales for this year was {}.'.format(total_sales))
-                        top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                        if top_loop_question != "Y":
-                            print("Goodbye!")
-                            exit()
-                        elif top_loop_question == "N":
+                overall_sales = input('Please confirm: see total sales? (Y/N)').upper()
+                if overall_sales == "Y":
+                    print('The total sales for this year was {}.'.format(total_sales))
+                    top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
+                    if top_loop_question != "Y":
+                        print("Goodbye!")
+                        exit()
+                    elif top_loop_question == "N":
                             break # HOW TO GET TO OUTERMOST LOOP??
                     elif overall_sales == "N":
                         print("No problem! Stats is boring anyway!!!")
