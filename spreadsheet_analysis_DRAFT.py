@@ -1,17 +1,15 @@
-# Issues: How to get out of nested loops??? Figure "Would you like to see another statistic?" out
-# In-Progress: Section 2.3.1 (Work out see another month loop)
-# Minor Issues: Invalid responses, currently solved by 'While True' looping indefinitely until expected response recieved.
-
-# 1 RAW DATA SECTION:
-'''
+# 1 IMPORTS
 import csv
 with open('sales.csv', 'r') as sales_csv:
     spreadsheet_sales = csv.DictReader(sales_csv)
-    for row in spreadsheet_sales:
-        print(dict(row))
     sales = []
-'''
+    for row in spreadsheet_sales:
+        sales.append(dict(row))
+print(sales)
+# List Comprehension
+restructured_sales = [int(row['sales']) for row in sales if row['month_no']== '1']
 
+from function_library import another_stat
 from statistics import mean
 def average(l):
     avg= sum(l)/len(l)
@@ -90,7 +88,8 @@ while True:
 
     # 2.1 QUESTIONS ABOUT SALES
     if option == "S":
-        while True:
+        done = False
+        while not done:
             sales_section = input('Would you like to see the sales YEARLY TOTAL(1), YEARLY AVERAGE(2) or MIN/MAX?(3)? (1/2/3)')
 
             # 2.1.1 Total Sales
@@ -98,20 +97,15 @@ while True:
                 overall_sales = input('Please confirm: see total sales? (Y/N)').upper()
                 if overall_sales == "Y":
                     print('The total sales for this year was {}.'.format(total_sales))
+                    done = another_stat()
+                elif overall_sales == "N":
+                    print("No problem! Stats is boring anyway!!!")
                     top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
                     if top_loop_question != "Y":
                         print("Goodbye!")
                         exit()
                     elif top_loop_question == "N":
-                            break # HOW TO GET TO OUTERMOST LOOP??
-                    elif overall_sales == "N":
-                        print("No problem! Stats is boring anyway!!!")
-                        top_loop_question = input("Would you like to see another statistic? (Y/N)").upper()
-                        if top_loop_question != "Y":
-                            print("Goodbye!")
-                            exit()
-                        elif top_loop_question == "N":
-                            break # HOW TO GET TO OUTERMOST LOOP??
+                        break # HOW TO GET TO OUTERMOST LOOP??
 
             # 2.1.2 Average Sales
             elif sales_section == "2":
