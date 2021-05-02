@@ -1,6 +1,7 @@
-# Sort out invalid input options (e.g. H/L, Y/N in another_stat)
-# Get rid of [' ']??
-# Issues with making list items 'int'
+# No allowance for invalid responses!
+# How to get rid of [' '] in list outputs?
+# Issues with making list items 'int' (lines 126-129)
+# Issues with 'another_month', ideally instead of exit() would be another_stat()
 
 # 1 IMPORT SECTION:
 # 1.1 CSV
@@ -13,6 +14,7 @@ with open('sales.csv', 'r') as sales_csv:
 
 # 1.2 FUNCTIONS
 from function_library import another_stat
+from function_library import another_month
 
 def average(av):
     avg = sum(av)/len(av)
@@ -21,7 +23,7 @@ def average(av):
 # 2 QUESTIONS SECTION:
 print("WELCOME TO THE ANNUAL SALES REVIEW!")
 while True:
-    option = input('Would you like to see statistics for SALES, EXPENDITURES, or PROFIT? (S/E/P)').upper()
+    option = input('MAIN MENU: Would you like to see statistics for SALES, EXPENDITURES, or PROFIT? (S/E/P)').upper()
 
     # 2.1 QUESTIONS ABOUT SALES
     if option == "S":
@@ -31,10 +33,13 @@ while True:
 
             # 2.1.2 Monthly Sales
             if sales_section == "1":
-                monthly_user_input = input('Which month would you like to see the sales of? (1/2/3 etc.)')
-                monthly_sales = [int(row['sales']) for row in sales if row['month_no'] == monthly_user_input]
-                corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
-                print("The sales for {} was {}.".format(corresponding_month, monthly_sales))
+                month_check = False
+                while not month_check:
+                    monthly_user_input = input('Which month would you like to see the sales of? (1/2/3 etc.)')
+                    monthly_sales = [int(row['sales']) for row in sales if row['month_no'] == monthly_user_input]
+                    corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
+                    print("The sales for {} was {}.".format(corresponding_month, monthly_sales))
+                    month_check = another_month()
 
             # 2.1.2 Total Sales
             if sales_section == "2":
@@ -70,10 +75,13 @@ while True:
 
             # 2.2.1 Monthly Expenditure
             if expend_section == "1":
-                monthly_user_input = input('Which month would you like to see the expenditure of? (1/2/3 etc.)')
-                monthly_expend = [int(row['expenditure']) for row in sales if row['month_no'] == monthly_user_input]
-                corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
-                print("The expenditure for {} was {}.".format(corresponding_month, monthly_expend))
+                month_check = False
+                while not month_check:
+                    monthly_user_input = input('Which month would you like to see the expenditure of? (1/2/3 etc.)')
+                    monthly_expend = [int(row['expenditure']) for row in sales if row['month_no'] == monthly_user_input]
+                    corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
+                    print("The expenditure for {} was {}.".format(corresponding_month, monthly_expend))
+                month_check = another_month
 
             # 2.2.2 Total Expenditure
             if expend_section == "2":
@@ -109,14 +117,17 @@ while True:
 
             # 2.3.1 Profit Per Month
             if profit_section == "1":
-                monthly_user_input = input('Which month would you like to see the profits of? (1/2/3 etc.)')
-                monthly_profit = [int(row['profit']) for row in sales if row['month_no'] == monthly_user_input]
-                corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
-                print("The profit for {} was {}.".format(corresponding_month, monthly_profit))
-                #if monthly_profit > 0:
-                    #print("The profit for {} was {}.".format(corresponding_month, monthly_profit))
-                #elif monthly_profit < 0:
-                    #print("The deficit for {} was {}.".format(corresponding_month, monthly_profit))
+                month_check = False
+                while not month_check:
+                    monthly_user_input = input('Which month would you like to see the profits of? (1/2/3 etc.)')
+                    monthly_profit = [int(row['profit']) for row in sales if row['month_no'] == monthly_user_input]
+                    corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
+                    print("The profit for {} was {}.".format(corresponding_month, monthly_profit))
+                    #if monthly_profit > 0:
+                        #print("The profit for {} was {}.".format(corresponding_month, monthly_profit))
+                    #elif monthly_profit < 0:
+                        #print("The deficit for {} was {}.".format(corresponding_month, monthly_profit))
+                    month_check = another_month()
 
             # 2.3.2 Total Profit
             elif profit_section == "2":
@@ -153,6 +164,4 @@ while True:
             print("Goodbye!")
             exit()
         elif stats_loop == "Y":
-            continue
-        else:
             continue
