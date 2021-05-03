@@ -39,7 +39,7 @@ while True:
                         # Fixed cosmetic issue of [''] list output.
                         month_check = another_month()
                     else:
-                        print('Invalid response. Please try again.')
+                        print('Invalid response! Please try again.')
 
             # 2.1.2 Total Sales
             if sales_section == "2":
@@ -87,7 +87,7 @@ while True:
                         print("The expenditure for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_expend)[1:-1]))
                         month_check = another_month()
                     else:
-                        print('Invalid response. Please try again.')
+                        print('Invalid response! Please try again.')
 
             # 2.2.2 Total Expenditure
             if expend_section == "2":
@@ -138,7 +138,7 @@ while True:
                             print("The deficit for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_profit)))
                         month_check = another_month()
                     else:
-                        print('Invalid response. Please try again.')
+                        print('Invalid response! Please try again.')
 
             # 2.3.2 Total Profit
             elif profit_section == "2":
@@ -171,7 +171,7 @@ while True:
                     print('Invalid response! Returning to PROFIT MENU.')
 
     else:
-        stats_loop = input("Sorry, invalid response. Would you like to try again? (Y/N)").upper()
+        stats_loop = input("Sorry, invalid response! Would you like to try again? (Y/N)").upper()
         if stats_loop == "N":
             print("Goodbye!")
             exit()
