@@ -1,6 +1,6 @@
 # Function 1: go back to MAIN MENU
 def another_stat():
-        top_loop_question = input("Would you like to go back to the MAIN MENU? (Y/N)").upper()
+        top_loop_question = input("Would you like to go back to the MAIN MENU to see another statistic? (Y/N)").upper()
         if top_loop_question == "N":
             print("Goodbye!")
             exit()
