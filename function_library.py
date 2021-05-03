@@ -4,7 +4,7 @@ def another_stat():
         if top_loop_question == "N":
             print("Goodbye!")
             exit()
-        elif top_loop_question != "Y" or "N":
+        elif top_loop_question not in ["Y", "N"]:
             print('Invalid response. Transferring you back to the MAIN MENU.')
             return top_loop_question
         return top_loop_question == "Y"
