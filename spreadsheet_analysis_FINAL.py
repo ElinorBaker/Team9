@@ -60,7 +60,6 @@ while True:
                 max_sales_month = [row['month_name'] for row in sales if row['sales'] == str(max_sales)]
                 min_sales = min([int(row['sales']) for row in sales])
                 min_sales_month = [row['month_name'] for row in sales if row['sales'] == str(min_sales)]
-
                 if show_minmax_sales == 'H':
                     print('The highest monthly sales was {}, from {}.'.format(str(max_sales), str(max_sales_month)[2:-2]))
                     done = another_stat()
@@ -108,7 +107,6 @@ while True:
                 max_expend_month = [row['month_name'] for row in sales if row['expenditure'] == str(max_expend)]
                 min_expend = min([int(row['expenditure']) for row in sales])
                 min_expend_month = [row['month_name'] for row in sales if row['expenditure'] == str(min_expend)]
-
                 if show_minmax_expand == 'H':
                     print('The highest monthly expenditure was {}, from {}.'.format(str(max_expend), str(max_expend_month)[2:-2]))
                     done = another_stat()
@@ -161,7 +159,6 @@ while True:
                 max_profit_month = [row['month_name'] for row in sales if row['profit'] == str(max_profit)]
                 min_profit = min([int(row['profit']) for row in sales])
                 min_profit_month = [row['month_name'] for row in sales if row['profit'] == str(min_profit)]
-
                 if show_minmax_profit == 'H':
                     print('The highest monthly profit was {}, from {}.'.format(str(max_profit), str(max_profit_month)[2:-2]))
                     done = another_stat()
