@@ -1,5 +1,3 @@
-# Issues with 'another_month', ideally instead of exit() would be another_stat()
-
 # 1 IMPORT SECTION:
 # 1.1 CSV
 import csv
@@ -34,9 +32,11 @@ while True:
                 while not month_check:
                     monthly_user_input = input('Which month would you like to see the sales of? (1/2/3 etc.)')
                     if monthly_user_input in ['1','2','3','4','5','6','7','8','9','10','11','12']:
+                        # OR didn't work, so used in []
                         monthly_sales = [int(row['sales']) for row in sales if row['month_no'] == monthly_user_input]
                         corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
                         print("The sales for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_sales)[1:-1]))
+                        # Fixed cosmetic issue of [''] list output.
                         month_check = another_month()
                     else:
                         print('Invalid response. Please try again.')
@@ -68,6 +68,7 @@ while True:
                     done = another_stat()
                 else:
                     print('Invalid response! Returning to SALES MENU.')
+                    # Ideally would have gone back to 'show_minmax_sales' but we made it work!
 
     # 2.2 QUESTIONS ABOUT EXPENDITURE
     elif option == "E":
@@ -128,6 +129,7 @@ while True:
                 while not month_check:
                     monthly_user_input = input('Which month would you like to see the profits of? (1/2/3 etc.)')
                     if monthly_user_input in ['1','2','3','4','5','6','7','8','9','10','11','12']:
+                        # Failed to make monthly_profit an Integer, so used sum() to do it.
                         monthly_profit = sum([int(row['profit']) for row in sales if row['month_no'] == monthly_user_input])
                         corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
                         if monthly_profit > 0:
