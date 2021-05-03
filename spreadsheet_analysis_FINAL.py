@@ -177,3 +177,6 @@ while True:
             exit()
         elif stats_loop == "Y":
             continue
+        else:
+            print('Invalid response! Returning to MAIN MENU.')
+            # Ideally would loop back to stats_loop, but this works too.
