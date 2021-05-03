@@ -129,7 +129,7 @@ while True:
                 while not month_check:
                     monthly_user_input = input('Which month would you like to see the profits of? (1/2/3 etc.)')
                     if monthly_user_input in ['1','2','3','4','5','6','7','8','9','10','11','12']:
-                        # Failed to make monthly_profit an Integer, so used sum() to do it.
+                        # Failed to make monthly_profit an integer, so used sum() to do it.
                         monthly_profit = sum([int(row['profit']) for row in sales if row['month_no'] == monthly_user_input])
                         corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
                         if monthly_profit > 0:
