@@ -16,7 +16,8 @@ def average(av):
     return avg
 
 # 2 QUESTIONS SECTION:
-print("WELCOME TO THE ANNUAL SALES REVIEW!")
+user_name = input("Who are you?").title()
+print("HELLO {}, WELCOME TO THE ANNUAL SALES REVIEW!".format(user_name).upper())
 while True:
     option = input('MAIN MENU: Would you like to see statistics for SALES, EXPENDITURES, or PROFIT? (S/E/P)').upper()
 
@@ -173,7 +174,7 @@ while True:
     else:
         stats_loop = input("Sorry, invalid response! Would you like to try again? (Y/N)").upper()
         if stats_loop == "N":
-            print("Goodbye!")
+            print("Goodbye, {}!".format(user_name))
             exit()
         elif stats_loop == "Y":
             continue
