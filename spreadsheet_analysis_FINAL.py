@@ -10,14 +10,11 @@ with open('sales.csv', 'r') as sales_csv:
 # 1.2 FUNCTIONS
 from function_library import another_stat
 from function_library import another_month
-
-def average(av):
-    avg = sum(av)/len(av)
-    return avg
+from function_library import average
 
 # 2 QUESTIONS SECTION:
-user_name = input("Who are you?").title()
-print("HELLO {}, WELCOME TO THE ANNUAL SALES REVIEW!".format(user_name).upper())
+user_name = input("Hello, who are you?").title()
+print("WELCOME TO THE ANNUAL SALES REVIEW, {}!".format(user_name).upper())
 while True:
     option = input('MAIN MENU: Would you like to see statistics for SALES, EXPENDITURES, or PROFIT? (S/E/P)').upper()
 
