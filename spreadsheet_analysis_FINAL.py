@@ -33,7 +33,7 @@ while True:
                         # OR didn't work, so used in []
                         monthly_sales = [int(row['sales']) for row in sales if row['month_no'] == monthly_user_input]
                         corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
-                        print("The sales for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_sales)[1:-1]))
+                        print("The sales for {} was £{}.".format(str(corresponding_month)[2:-2], str(monthly_sales)[1:-1]))
                         # Fixed cosmetic issue of [''] list output.
                         month_check = another_month()
                     else:
@@ -42,13 +42,13 @@ while True:
             # 2.1.2 Total Sales
             if sales_section == "2":
                 total_sales = sum([int(row['sales']) for row in sales])
-                print('The total sales for this year was {}.'.format(str(total_sales)))
+                print('The total sales for this year was £{}.'.format(str(total_sales)))
                 done = another_stat()
 
             # 2.1.3 Average Sales
             elif sales_section == "3":
                 average_sales = round(average([int(row['sales']) for row in sales]), 2)
-                print("This year's average sales was {}.".format(str(average_sales)))
+                print("This year's average sales was £{}.".format(str(average_sales)))
                 done = another_stat()
 
             # 2.1.4 Min/Max Sales
@@ -59,10 +59,10 @@ while True:
                 min_sales = min([int(row['sales']) for row in sales])
                 min_sales_month = [row['month_name'] for row in sales if row['sales'] == str(min_sales)]
                 if show_minmax_sales == 'H':
-                    print('The highest monthly sales was {}, from {}.'.format(str(max_sales), str(max_sales_month)[2:-2]))
+                    print('The highest monthly sales was £{}, from {}.'.format(str(max_sales), str(max_sales_month)[2:-2]))
                     done = another_stat()
                 elif show_minmax_sales == 'L':
-                    print('The lowest monthly sales was {}, from {}.'.format(str(min_sales), str(min_sales_month)[2:-2]))
+                    print('The lowest monthly sales was £{}, from {}.'.format(str(min_sales), str(min_sales_month)[2:-2]))
                     done = another_stat()
                 else:
                     print('Invalid response! Returning to SALES MENU.')
@@ -82,7 +82,7 @@ while True:
                     if monthly_user_input in ['1','2','3','4','5','6','7','8','9','10','11','12']:
                         monthly_expend = [int(row['expenditure']) for row in sales if row['month_no'] == monthly_user_input]
                         corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
-                        print("The expenditure for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_expend)[1:-1]))
+                        print("The expenditure for {} was £{}.".format(str(corresponding_month)[2:-2], str(monthly_expend)[1:-1]))
                         month_check = another_month()
                     else:
                         print('Invalid response! Please try again.')
@@ -90,13 +90,13 @@ while True:
             # 2.2.2 Total Expenditure
             if expend_section == "2":
                 total_expend = sum([int(row['expenditure']) for row in sales])
-                print("This year's total expenditure was {}.".format(str(total_expend)))
+                print("This year's total expenditure was £{}.".format(str(total_expend)))
                 done = another_stat()
 
             # 2.2.3 Average Expenditure
             if expend_section == "3":
                 average_expend = round(average([int(row['expenditure']) for row in sales]), 2)
-                print("The average expenditure this year was {}.".format(str(average_expend)))
+                print("The average expenditure this year was £{}.".format(str(average_expend)))
                 done = another_stat()
 
             # 2.2.4 Min/Max Expenditure
@@ -107,10 +107,10 @@ while True:
                 min_expend = min([int(row['expenditure']) for row in sales])
                 min_expend_month = [row['month_name'] for row in sales if row['expenditure'] == str(min_expend)]
                 if show_minmax_expand == 'H':
-                    print('The highest monthly expenditure was {}, from {}.'.format(str(max_expend), str(max_expend_month)[2:-2]))
+                    print('The highest monthly expenditure was £{}, from {}.'.format(str(max_expend), str(max_expend_month)[2:-2]))
                     done = another_stat()
                 elif show_minmax_expand == 'L':
-                    print('The lowest monthly expenditure was {}, from {}.'.format(str(min_expend), str(min_expend_month)[2:-2]))
+                    print('The lowest monthly expenditure was £{}, from {}.'.format(str(min_expend), str(min_expend_month)[2:-2]))
                     done = another_stat()
                 else:
                     print('Invalid response! Returning to EXPENDITURE MENU.')
@@ -131,9 +131,9 @@ while True:
                         monthly_profit = sum([int(row['profit']) for row in sales if row['month_no'] == monthly_user_input])
                         corresponding_month = [row['month_name'] for row in sales if row['month_no'] == monthly_user_input]
                         if monthly_profit > 0:
-                            print("The profit for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_profit)))
+                            print("The profit for {} was £{}.".format(str(corresponding_month)[2:-2], str(monthly_profit)))
                         elif monthly_profit < 0:
-                            print("The deficit for {} was {}.".format(str(corresponding_month)[2:-2], str(monthly_profit)))
+                            print("The deficit for {} was £{}.".format(str(corresponding_month)[2:-2], str(monthly_profit)))
                         month_check = another_month()
                     else:
                         print('Invalid response! Please try again.')
@@ -143,13 +143,13 @@ while True:
                 total_sales = sum([int(row['sales']) for row in sales])
                 total_expend = sum([int(row['expenditure']) for row in sales])
                 total_profit = total_sales - total_expend
-                print("The total profit for this year was {}.".format(str(total_profit)))
+                print("The total profit for this year was £{}.".format(str(total_profit)))
                 done = another_stat()
 
             # 2.3.3 Average Profit
             elif profit_section == "3":
                 average_profit = round(sum([int(row['profit']) for row in sales])/7, 2)
-                print("This year's average profit was {}.".format(str(average_profit)))
+                print("This year's average profit was £{}.".format(str(average_profit)))
                 done = another_stat()
 
             # 2.3.4 Min/Max Profit
@@ -160,10 +160,10 @@ while True:
                 min_profit = min([int(row['profit']) for row in sales])
                 min_profit_month = [row['month_name'] for row in sales if row['profit'] == str(min_profit)]
                 if show_minmax_profit == 'H':
-                    print('The highest monthly profit was {}, from {}.'.format(str(max_profit), str(max_profit_month)[2:-2]))
+                    print('The highest monthly profit was £{}, from {}.'.format(str(max_profit), str(max_profit_month)[2:-2]))
                     done = another_stat()
                 elif show_minmax_profit == 'L':
-                    print('The lowest monthly profit was a deficit of {}, from {}.'.format(str(min_profit), str(min_profit_month)[2:-2]))
+                    print('The lowest monthly profit was a deficit of £{}, from {}.'.format(str(min_profit), str(min_profit_month)[2:-2]))
                     done = another_stat()
                 else:
                     print('Invalid response! Returning to PROFIT MENU.')
